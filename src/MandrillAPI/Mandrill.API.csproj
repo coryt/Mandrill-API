@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65AA7F0A-4254-4E9C-B3F0-6DFB946EF4A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mandrill.API</RootNamespace>
+    <AssemblyName>Mandrill.API</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.103.2\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Endpoints\BaseEndpoint.cs" />
+    <Compile Include="Endpoints\IMandrillEndpoint.cs" />
+    <Compile Include="Endpoints\MessageEndpoints.cs" />
+    <Compile Include="Endpoints\UserEndpoints.cs" />
+    <Compile Include="MandrillRequest.cs" />
+    <Compile Include="Models\Attachments.cs" />
+    <Compile Include="Models\DeletedSuccesses.cs" />
+    <Compile Include="Models\DeliverStats.cs" />
+    <Compile Include="Models\URLStats.cs" />
+    <Compile Include="Models\TemplateContent.cs" />
+    <Compile Include="Models\Recipient.cs" />
+    <Compile Include="Models\RecipientReturn.cs" />
+    <Compile Include="Models\BlackList.cs" />
+    <Compile Include="Models\SearchReturn.cs" />
+    <Compile Include="Models\SenderDomains.cs" />
+    <Compile Include="Models\Summary.cs" />
+    <Compile Include="Models\Statistics.cs" />
+    <Compile Include="Models\TemplateInfo.cs" />
+    <Compile Include="Models\URLHistory.cs" />
+    <Compile Include="Models\UserInformation.cs" />
+    <Compile Include="Models\WebhookInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Endpoints\RejectEndpoints.cs" />
+    <Compile Include="Endpoints\SenderEndpoints.cs" />
+    <Compile Include="Endpoints\TagEndpoints.cs" />
+    <Compile Include="Endpoints\TemplateEndpoints.cs" />
+    <Compile Include="Endpoints\UrlEndpoints.cs" />
+    <Compile Include="Endpoints\WebhookEndpoints.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
