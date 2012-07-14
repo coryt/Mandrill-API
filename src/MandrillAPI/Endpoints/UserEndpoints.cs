@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Mandrill.API.Models;
 using RestSharp;
 
@@ -10,34 +11,31 @@ namespace Mandrill.API.Endpoints
         public Users(MandrillRequest request)
             : base(request)
         {
+            request.AddParameter("key", request.ApiKey);
         }
 
         public UserInformation GetInfo()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/info.json", EndpointName);
             return Request.Execute<UserInformation>();
         }
 
         public string Ping()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/ping.json", EndpointName);
             return Request.Execute();
         }
 
-        public string Ping2()
+        public Ping2 Ping2()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/ping2.json", EndpointName);
-            return Request.Execute();
+            return Request.Execute<Ping2>();
         }
 
-        public string GetSenders()
+        public List<SenderData> GetSenders()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/senders.json", EndpointName);
-            return Request.Execute();
+            return Request.Execute<List<SenderData>>();
         }
     }
 }

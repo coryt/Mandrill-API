@@ -46,6 +46,7 @@
     <Compile Include="Models\Attachments.cs" />
     <Compile Include="Models\DeletedSuccesses.cs" />
     <Compile Include="Models\DeliverStats.cs" />
+    <Compile Include="Models\Ping2.cs" />
     <Compile Include="Models\URLStats.cs" />
     <Compile Include="Models\TemplateContent.cs" />
     <Compile Include="Models\Recipient.cs" />

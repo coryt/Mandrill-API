@@ -18,9 +18,9 @@ namespace Mandrill.API.Endpoints
         /// <returns>A struct of type RecipientReturn</returns>
         public List<RecipientReturn> send(object T)
         {
-            Request.Method = Method.POST;
-            Request.Resource = string.Format("{0}/search.json", EndpointName);
-            Request.AddBody(new {message = T});
+            Request.Resource = string.Format("{0}/send.json", EndpointName);
+            Request.AddBody(new { key = Request.ApiKey, message = T });
+            
             return Request.Execute<List<RecipientReturn>>();
         }
 
@@ -31,9 +31,9 @@ namespace Mandrill.API.Endpoints
         /// <returns>A struct of type RecipientReturn</returns>
         public List<RecipientReturn> sendtemplate(string TemplateName, List<object> templateContent, object message)
         {
-            Request.Method = Method.POST;
-            Request.Resource = string.Format("{0}/send-template.xml", EndpointName);
-            Request.AddBody(new {template_name = TemplateName, template_content = templateContent, message});
+            Request.Resource = string.Format("{0}/send-template.json", EndpointName);
+            Request.AddBody(new { key = Request.ApiKey, template_name = TemplateName, template_content = templateContent, message });
+            
             return Request.Execute<List<RecipientReturn>>();
         }
 
@@ -48,9 +48,8 @@ namespace Mandrill.API.Endpoints
         public List<SearchReturn> search(string query, string date_from, string date_to, List<string> tags,
                                          List<string> senders, int limit)
         {
-            Request.Method = Method.POST;
-            Request.Resource = string.Format("{0}/search.xml", EndpointName);
-            Request.AddBody(new {query, date_from, tags, senders, limit});
+            Request.Resource = string.Format("{0}/search.json", EndpointName);
+            Request.AddBody(new { key = Request.ApiKey, query, date_from, tags, senders, limit });
 
             return Request.Execute<List<SearchReturn>>();
         }

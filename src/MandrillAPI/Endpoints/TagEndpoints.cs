@@ -17,9 +17,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>Return the 100 most clicked URLs that match the search query given</returns>        
         public List<Tags> list()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/list.json", EndpointName);
-
             return Request.Execute<List<Tags>>();
         }
 
@@ -28,10 +26,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>struct of the detailed information about the tag</returns>        
         public List<DetailedTagsStatistics> info(string tag)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/info.json", EndpointName);
             Request.AddBody(new {tag});
-
             return Request.Execute<List<DetailedTagsStatistics>>();
         }
 
@@ -40,12 +36,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>struct of the detailed information about the tag</returns>        
         public List<TimeSeriesStatistics> TimeSeries(string tag)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/time-series.json", EndpointName);
-
-
             Request.AddBody(new {tag});
-
             return Request.Execute<List<TimeSeriesStatistics>>();
         }
 
@@ -53,10 +45,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>struct of the detailed information about the tag</returns>        
         public List<TimeSeriesStatistics> AllTimeSeries()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/all-time-series.json", EndpointName);
-
-
             return Request.Execute<List<TimeSeriesStatistics>>();
         }
     }

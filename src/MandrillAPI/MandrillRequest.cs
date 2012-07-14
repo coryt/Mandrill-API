@@ -13,8 +13,6 @@ namespace Mandrill.API
         {
             ApiKey = apiKey;
             _client = new RestClient(MandrillUrl);
-            RequestFormat = DataFormat.Json;
-            AddHeader("Content-Type", "application/xml");
         }
 
         public string ApiKey { get; private set; }
@@ -22,14 +20,14 @@ namespace Mandrill.API
 
         public static MandrillRequest With(string apiKey)
         {
-            var request = new MandrillRequest(apiKey);
-            request.AddParameter("key", apiKey);
+            var request = new MandrillRequest(apiKey) { Method = Method.POST, RequestFormat = DataFormat.Json };
+
             return request;
         }
 
         public T In<T>() where T : IMandrillEndpoint
         {
-            return (T) Activator.CreateInstance(typeof (T), this);
+            return (T)Activator.CreateInstance(typeof(T), this);
         }
 
         public T Execute<T>() where T : new()

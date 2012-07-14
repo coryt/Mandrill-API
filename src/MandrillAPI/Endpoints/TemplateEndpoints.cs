@@ -19,7 +19,6 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information saved about the new template</returns>
         public TemplateInfo Templateadd(string name, string code)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/add.json", EndpointName);
             Request.AddBody(new {name, code});
             return Request.Execute<TemplateInfo>();
@@ -30,7 +29,6 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information saved about the template</returns>
         public TemplateInfo Templateinfo(string name)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/info.json", EndpointName);
             Request.AddBody(new {name});
             return Request.Execute<TemplateInfo>();
@@ -42,10 +40,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information saved about the updated template</returns>
         public TemplateInfo update(string name, string code)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/update.json", EndpointName);
             Request.AddBody(new {name, code});
-
             return Request.Execute<TemplateInfo>();
         }
 
@@ -54,7 +50,6 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information saved about the deleted template</returns>
         public TemplateInfo Templatedelete(string name)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/delete.json", EndpointName);
             Request.AddBody(new {name});
             return Request.Execute<TemplateInfo>();
@@ -64,7 +59,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>an array of the information about each template</returns>
         public List<TemplateInfo> Templatelist()
         {
-            Request.Method = Method.POST;
+            
             Request.Resource = string.Format("{0}/list.json", EndpointName);
             return Request.Execute<List<TemplateInfo>>();
         }
@@ -74,7 +69,6 @@ namespace Mandrill.API.Endpoints
         /// <returns>the array of history information</returns>
         public List<TimeSeriesStatistics> TemplateTimeSeries(string name)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/time-series.json", EndpointName);
             return Request.Execute<List<TimeSeriesStatistics>>();
         }

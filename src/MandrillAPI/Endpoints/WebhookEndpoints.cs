@@ -17,9 +17,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>A struct of the webhook information</returns>
         public WebhookInfo Webhookslist()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/list.json", EndpointName);
-
             return Request.Execute<WebhookInfo>();
         }
 
@@ -30,10 +28,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information saved about the new webhook</returns>
         public WebhookInfo Webhooksadd(string url, List<object> T)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/add.json", EndpointName);
             Request.AddBody(new {message = T});
-
             return Request.Execute<WebhookInfo>();
         }
 
@@ -42,10 +38,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>Return the information about the Webhook</returns>
         public WebhookInfo Webhooksinfo(int id)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/info.json", EndpointName);
             Request.AddBody(new {id});
-
             return Request.Execute<WebhookInfo>();
         }
 
@@ -56,10 +50,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information for the updated webhook</returns>
         public WebhookInfo Webhooksupdate(int id, string url, List<object> T)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/update.json", EndpointName);
             Request.AddBody(new {id, url, events = T});
-
             return Request.Execute<WebhookInfo>();
         }
 
@@ -68,10 +60,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information for the deleted webhook</returns>
         public WebhookInfo Webhooksdelete(int id)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/delete.json", EndpointName);
             Request.AddBody(new {id});
-
             return Request.Execute<WebhookInfo>();
         }
     }

@@ -16,10 +16,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>Return the senders that have tried to use this account.</returns>
         public List<SenderData> SenderList()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/list.json", EndpointName);
-
-
             return Request.Execute<List<SenderData>>();
         }
 
@@ -27,10 +24,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>Return the senders that have tried to use this account.</returns>
         public List<SenderDomains> SenderDomains()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/domains.json", EndpointName);
-
-
             return Request.Execute<List<SenderDomains>>();
         }
 
@@ -41,11 +35,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>a struct of the detailed information about the sender</returns>
         public List<SenderData> SenderInfo(string Address)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/info.json", EndpointName);
-
             Request.AddBody(new {address = Address});
-
             return Request.Execute<List<SenderData>>();
         }
 
@@ -54,11 +45,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the array of history information</returns>
         public List<TimeSeriesStatistics> SenderTimeSeries(string Address)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/time-series.json", EndpointName);
-
             Request.AddBody(new {address = Address});
-
             return Request.Execute<List<TimeSeriesStatistics>>();
         }
     }

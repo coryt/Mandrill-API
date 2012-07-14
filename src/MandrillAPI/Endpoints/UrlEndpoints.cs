@@ -17,10 +17,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>the 100 most clicked URLs and their stats</returns>        
         public List<URLStats> UrlList()
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/list.json", EndpointName);
-
-
             return Request.Execute<List<URLStats>>();
         }
 
@@ -29,11 +26,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the 100 most clicked URLs and their stats</returns>        
         public List<URLStats> UrlSearch(string q)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/search.json", EndpointName);
-
             Request.AddBody(new {q});
-
             return Request.Execute<List<URLStats>>();
         }
 
@@ -42,10 +36,7 @@ namespace Mandrill.API.Endpoints
         /// <returns>the array of history information</returns>        
         public List<URLHistory> UrlTimeSeries(string url)
         {
-            Request.Method = Method.POST;
             Request.Resource = string.Format("{0}/time-series.json", url);
-
-
             return Request.Execute<List<URLHistory>>();
         }
     }

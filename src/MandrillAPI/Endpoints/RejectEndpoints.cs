@@ -19,10 +19,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>the information for each rejection blacklist entry</returns>
         public List<BlackList> list(string Email)
         {
-            Request.Method = Method.POST;
-            Request.Resource = string.Format("{0}/list.xml", EndpointName);
+            Request.Resource = string.Format("{0}/list.json", EndpointName);
             Request.AddBody(new {email = Email});
-
             return Request.Execute<List<BlackList>>();
         }
 
@@ -33,10 +31,8 @@ namespace Mandrill.API.Endpoints
         /// <returns>a status object containing the address and whether the deletion succeeded.</returns>
         public List<DeletedSuccesses> delete(string Email)
         {
-            Request.Method = Method.POST;
-            Request.Resource = string.Format("{0}/delete.xml", EndpointName);
+            Request.Resource = string.Format("{0}/delete.json", EndpointName);
             Request.AddBody(new {email = Email});
-
             return Request.Execute<List<DeletedSuccesses>>();
         }
     }
