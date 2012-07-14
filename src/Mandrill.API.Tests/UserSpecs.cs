@@ -1,11 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using Machine.Specifications;
 using Mandrill.API.Endpoints;
 using Mandrill.API.Models;
-using NUnit.Framework;
 
 namespace Mandrill.API.Tests
 {
